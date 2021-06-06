@@ -1,0 +1,62 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+<style>
+    .my-custom-scrollbar {
+        position: relative;
+        height: 200px;
+        overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+        display: block;
+    }
+
+    th, td {
+        white-space: normal !important; 
+        word-wrap: break-word;  
+    }
+</style>
+<div style="display: flex; flex-direction: row; justify-content: center; align-items: center; width: 100%; height: 100%; font-family: 'Inter', sans-serif;">
+    <div style="width: 40vw; margin-right: 5vw;">
+        <h1> My Notes </h1>
+
+        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+            <table class="table mb-0" style=" table-layout: fixed;">
+              <thead class="table-dark">
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Entry</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for entry in entries %}
+                    <tr>
+                        <td>{{entry.created_at.date}}</td>
+                        <td>{{entry.title}}</td>
+                        <td style="width: 1vw !important;">{{entry.body}}{{entry.body}}</td>
+                    </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          
+          </div>
+          
+    </div>
+    <div style="width: 19vw;">
+        <form method="POST" action="/">
+            {% csrf_token %}
+            <h1>Create Note</h1>
+            <input name="title" placeholder="title" style="padding: 10px; font-size: 1.1vw; margin: 5px 0px; border-radius: 10px;"/>
+            <input name="body" placeholder="content" style="width: 17vw; height: 10vw; padding: 10px; font-size: 1.1vw; margin: 5px 0px; border-radius: 10px;"/>
+            <input class="btn btn-link" type="submit" value="Add" style="padding: 0; text-align: right;"/>
+        </form>
+
+        <form action="/logout">
+            {% csrf_token %}
+            <input class="btn btn-light" type="submit" value="logout"/>
+        </form>
+    </div>
+</div>
