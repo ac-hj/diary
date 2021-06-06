@@ -16,15 +16,16 @@
         white-space: normal !important; 
         word-wrap: break-word;  
     }
+
 </style>
-<div style="display: flex; flex-direction: row; justify-content: center; align-items: center; width: 100%; height: 100%; font-family: 'Inter', sans-serif;">
+<div style="display: flex; flex-direction: row; justify-content: center; align-items: center; width: 100%; height: 100%; font-family: 'Inter', sans-serif; background-color: #A3E4D7">
     <div style="width: 40vw; margin-right: 5vw;">
-        <h1> My Notes </h1>
+        <h1 style="margin-top: 0px; margin-bottom: 10px;"> My Notes </h1>
 
         <div class="table-wrapper-scroll-y my-custom-scrollbar">
 
-            <table class="table mb-0" style=" table-layout: fixed;">
-              <thead class="table-dark">
+            <table class="table table-striped" style="table-layout: fixed; background-color: white; ">
+              <thead style="background-color: #2E2E2E; color: white; font-weight: bold;">
                 <tr>
                   <th scope="col">Date</th>
                   <th scope="col">Title</th>
@@ -33,10 +34,10 @@
               </thead>
               <tbody>
                 {% for entry in entries %}
-                    <tr>
+                    <tr scope="row">
                         <td>{{entry.created_at.date}}</td>
-                        <td>{{entry.title}}</td>
-                        <td style="width: 1vw !important;">{{entry.body}}{{entry.body}}</td>
+                        <td >{{entry.title}}</td>
+                        <td style="width: 1vw !important;">{{entry.body}}</td>
                     </tr>
                 {% endfor %}
               </tbody>
