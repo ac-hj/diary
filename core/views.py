@@ -31,6 +31,10 @@ def login_view(request):
         if user is not None:
             login(request, user)
             return redirect("/")
+    # if already  logged in
+    elif request.user.is_authenticated:
+        
+        return redirect("/")
     # else, return the login pages (GET method)
     return render(request, 'accounts.html', {})
 

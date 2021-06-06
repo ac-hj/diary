@@ -18,46 +18,48 @@
     }
 
 </style>
-<div style="display: flex; flex-direction: row; justify-content: center; align-items: center; width: 100%; height: 100%; font-family: 'Inter', sans-serif; background-color: #A3E4D7">
-    <div style="width: 40vw; margin-right: 5vw;">
-        <h1 style="margin-top: 0px; margin-bottom: 10px;"> My Notes </h1>
+<div style="display: flex; flex-direction: row; justify-content: center; align-items: center; width: 100%; height: 100%; font-family: 'Inter', sans-serif;">
+    <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; width: 75vw; height: 55vh; font-family: 'Inter', sans-serif; background-color: rgba(240,240,240,0.8); border-radius: 30px;">
+        <div style="width: 40vw; margin-right: 5vw;">
+            <h1 style="margin-top: 0px; margin-bottom: 10px;"> My Notes </h1>
 
-        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
 
-            <table class="table table-striped" style="table-layout: fixed; background-color: white; ">
-              <thead style="background-color: #2E2E2E; color: white; font-weight: bold;">
-                <tr>
-                  <th scope="col">Date</th>
-                  <th scope="col">Title</th>
-                  <th scope="col">Entry</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for entry in entries %}
-                    <tr scope="row">
-                        <td>{{entry.created_at.date}}</td>
-                        <td >{{entry.title}}</td>
-                        <td style="width: 1vw !important;">{{entry.body}}</td>
+                <table class="table table-striped" style="table-layout: fixed; background-color: white; ">
+                <thead style="background-color: #2E2E2E; color: white; font-weight: bold;">
+                    <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Entry</th>
                     </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          
-          </div>
-          
-    </div>
-    <div style="width: 19vw;">
-        <form method="POST" action="/">
-            {% csrf_token %}
-            <h1>Create Note</h1>
-            <input name="title" placeholder="title" style="padding: 10px; font-size: 1.1vw; margin: 5px 0px; border-radius: 10px;"/>
-            <input name="body" placeholder="content" style="width: 17vw; height: 10vw; padding: 10px; font-size: 1.1vw; margin: 5px 0px; border-radius: 10px;"/>
-            <input class="btn btn-link" type="submit" value="Add" style="padding: 0; text-align: right;"/>
-        </form>
+                </thead>
+                <tbody>
+                    {% for entry in entries %}
+                        <tr scope="row">
+                            <td>{{entry.created_at.date}}</td>
+                            <td >{{entry.title}}</td>
+                            <td style="width: 1vw !important;">{{entry.body}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+            
+            </div>
+            
+        </div>
+        <div style="width: 19vw;">
+            <form method="POST" action="/">
+                {% csrf_token %}
+                <h1>Create Note</h1>
+                <input name="title" placeholder="title" style="padding: 10px; font-size: 1.1vw; margin: 5px 0px; border-radius: 10px;"/>
+                <input name="body" placeholder="content" style="width: 17vw; height: 10vw; padding: 10px; font-size: 1.1vw; margin: 5px 0px; border-radius: 10px;"/>
+                <input class="btn btn-link" type="submit" value="Add" style="padding: 0; text-align: right;"/>
+            </form>
 
-        <form action="/logout">
-            {% csrf_token %}
-            <input class="btn btn-light" type="submit" value="logout"/>
-        </form>
+            <form action="/logout">
+                {% csrf_token %}
+                <input class="btn btn-danger" type="submit" value="logout"/>
+            </form>
+        </div>
     </div>
 </div>

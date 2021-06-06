@@ -4,15 +4,19 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
 <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; height: 100%; font-family: 'Inter', sans-serif;">
-    <div style="width: 25vw; margin: 0;">
-
-        <p style="font-size: 3.5vw;">Sign Up</p>
-        <form method="POST" action="/signup">
-            {% csrf_token %}
-            <input name="username" placeholder="username" style="width: 20vw; padding: 10px; font-size: 1.1vw; margin: 5px 0px; border-radius: 30px;"/>
-            <input name="email" placeholder="email" style="width: 20vw; padding: 10px; font-size: 1.1vw; margin: 5px 0px; border-radius: 30px;"/>
-            <input name="password" placeholder="password" type="password" style="width: 20vw; padding: 10px; font-size: 1.1vw; margin: 5px 0px; border-radius: 30px;"/>
-            <input class="btn btn-link" type="submit" value="Submit" style="margin-left: 7px; padding: 0 !important;font-size: 1.1vw; display: block;"/>
-        </form>
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 55vw; height: 55vh; font-family: 'Inter', sans-serif; background-color: rgba(240,240,240,0.8); border-radius: 30px;">
+        <div style="width: 25vw; margin: 0;">
+            <p style="font-size: 3.5vw;">Sign Up</p>
+            <form method="POST" action="/signup">
+                {% csrf_token %}
+                <input name="username" placeholder="username" style="width: 20vw; padding: 10px; font-size: 1.1vw; margin: 5px 0px; border-radius: 30px;"/>
+                <input name="email" placeholder="email" style="width: 20vw; padding: 10px; font-size: 1.1vw; margin: 5px 0px; border-radius: 30px;"/>
+                <input name="password" placeholder="password" type="password" style="width: 20vw; padding: 10px; font-size: 1.1vw; margin: 5px 0px; border-radius: 30px;"/>
+                <input class="btn btn-success" type="submit" value="Submit" style="margin-left: 7px; font-size: 1.1vw; display: block; margin-top: 10px; display: inline;"/>
+            </form>
+            <form method="GET" action="/">
+                 <input class="btn btn-warning" type="submit" value="Go back" style="margin-left: 7px; font-size: 1.1vw; display: block; margin-top: 10px;"/>
+            </form>
+        </div>
     </div>
 </div>
